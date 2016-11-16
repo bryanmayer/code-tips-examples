@@ -31,10 +31,10 @@ The default colors:
 
 Example with median, could also use mean or whatever.
 
+This uses geom_errorbar:
 ```
 
 library(ggplot2)
-
 
 test_data = data.frame(
   y = c(rnorm(10), rnorm(10, 5)),
@@ -48,5 +48,14 @@ ggplot(data = test_data, aes(x = "Group", y = y, colour = response)) +
   geom_errorbar(data = subset(test_data, response == 1),
                 stat="summary", fun.y="median", width=0.8, 
                 aes(ymax=..y.., ymin=..y..))
+
+```
+Alternative using stat_summary:
+```
+ggplot(data = test_data, aes(x = "Group", y = y, colour = response)) +
+  #geom_boxplot(data = subset(test_data, response == 1), fill = NA) +
+  geom_jitter() +
+  stat_summary(data = subset(test_data, response == 1),fun.y=median,geom='crossbar',
+   fun.ymax = median, fun.ymin = median,col='black') 
 
 ```
