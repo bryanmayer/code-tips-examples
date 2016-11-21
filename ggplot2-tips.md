@@ -30,6 +30,41 @@ plot_grid(mylegend, plot_grid(test_plot_noleg, test_plot_noleg, nrow = 1),
 
 ```
 
+## using guide to overwrite
+
+http://docs.ggplot2.org/0.9.3.1/guide_legend.html
+
+### data setup
+
+```
+library(ggplot2)
+library(cowplot)
+
+
+test_data = data.frame(
+  outcome = c(rnorm(10), rnorm(10, 5)),
+  response = rep(c(0:4), each = 4)
+)
+```
+
+### Mulitple rows
+
+```
+ggplot(data = test_data, aes(y = outcome, x = factor(response), colour = factor(response))) +
+ geom_point() +
+ guides(col = guide_legend(nrow = 2))
+
+```
+
+### Changing aes shape and sizes for legend
+
+```
+ggplot(data = test_data, aes(y = outcome, x = factor(response), colour = factor(response))) +
+ geom_point() +
+ guides(col = guide_legend(override.aes = list(shape = 5, size = 4)))
+
+```
+
 # ggplot2 formatting 
 
 ## Default colors
