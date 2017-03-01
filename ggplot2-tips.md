@@ -126,3 +126,54 @@ ggplot(data = test_data, aes(x = "Group", y = y, colour = response)) +
    fun.ymax = median, fun.ymin = median,col='black') 
 
 ```
+
+# Multiple plots
+
+Make a list of 24 plots:
+```
+library(ggplot2)
+
+plot_list = plyr::llply(1:24, function(i){
+  #this is just random data
+  plot_data = data.frame(x = rnorm(100), y = rnorm(100))
+
+  ggplot(data = plot_data, aes(x = x, y = y)) +
+    geom_point()
+ 
+ })
+ 
+plot_list[[1]]
+
+```
+
+## multiple panels with labels using cowplot
+
+```
+library(cowplot)
+
+plots1 = plot_grid(plotlist = plot_list[1:12], nrow = 3, ncol = 4, labels = LETTERS[1:12])
+plots2 = plot_grid(plotlist = plot_list[13:24], nrow = 3, ncol = 4, labels = LETTERS[13:24])
+
+plots1
+plots2
+```
+
+## save output as multiple pages with marrangeGrob
+
+```
+library(gridExtra)
+
+page_plots = marrangeGrob(grobs = plot_list, nrow = 3, ncol = 4)
+#makes multiple windows
+page_plots
+
+ggsave("page_plots.pdf", page_plots)
+
+
+##using the cowplot labels from above
+page_plots2 = marrangeGrob(grobs = list(plots1, plots2), nrow = 1, ncol = 1)
+page_plots2
+
+ggsave("page_plots2.pdf", page_plots2)
+
+```
