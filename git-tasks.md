@@ -8,7 +8,7 @@ git reset also resets uncommitted changed
 
 # changing the remote master
 
-- Check remote: `git remove -v`
+- Check remote: `git remote -v`
 - Change remote: `git remote set-url origin https://...`
 
 # revert a file back
