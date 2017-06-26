@@ -22,7 +22,7 @@ git checkout filename
 This assumes that a github repo is already the origin and that you are working from your current local repo. 
 
 Here are the steps:    
-1. Create a bare repo: `git init --bare path/to/new/repo/repo.git`
+1. Create a new bare repo at destination: `git init --bare path/to/new/repo/repo.git`
 2. Add a new remote origin to local repo and  **maybe** re-add the original remote repo (mine got deleted).
 ```
 git remote set-url origin --push --add path/to/new/repo/repo.git
