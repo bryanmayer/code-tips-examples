@@ -31,3 +31,14 @@ git remote set-url origin --push --add https://github.com/username/repo
 
 3. Check on remote settings: `git remote -v`
 4. `git push origin master`
+
+# Reverting (resetting) to previous states after add or commit
+
+Reset all changes since last update:
+`git reset --hard`
+
+Discard committed changes without discarding edits:
+`git reset --soft`
+
+More information for specification here:
+https://git-scm.com/docs/git-reset
