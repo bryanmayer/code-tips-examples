@@ -92,6 +92,16 @@ The default colors:
 - red: `#F8766D`
 - blue: `#00BFC4`
 
+| **Total colors**| 1 | 2 | 3 | 4 | 5 | 6 | 
+|----------|-------------|---------|---------------|-------------|---------|---------------|
+| *2*| red: `#F8766D` | blue: `#00BFC4` |  |  |  |  | 
+| *3*| red: `#F8766D` | green: `#00BA38` | d. blue: `#619CFF` |  |  |  | 
+| *4*| red: `#F8766D` | l. green: `#7CAE00` | blue: `#00BFC4` | purple `#C77CFF` |  |  | 
+| *5*| red: `#F8766D` | yellow: `#A3A500` | green2: `#00BF7D` | d. blue2: `#00B0F6` | purple `#C77CFF` | | 
+| *6*| red: `#F8766D` | yellow2: `#B79F00` | green: `#00BA38` | blue: `#00BFC4` | d. blue `#619CFF` | magenta: `#F564E3` | 
+
+
+
 # Specialized operations
 
 ## Drawing a summary statistic line
