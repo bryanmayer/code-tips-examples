@@ -200,7 +200,7 @@ plot_list = map(1:4, function(i){
   
 })
 
-```` ``` ````
+` ``` `
 
 ```{r test_plots, fig.cap=paste0("test plot: ", as.character(1:4))}
 for(i in 1:4){
