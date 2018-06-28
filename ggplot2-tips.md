@@ -187,3 +187,30 @@ page_plots2
 ggsave("page_plots2.pdf", page_plots2)
 
 ```
+
+## multiple labels across chunks
+
+```
+
+```{r}
+plot_list = map(1:4, function(i){
+  dat = data.frame(x = rnorm(100, i *5), y = rnorm(100, i * 10))
+  ggplot(data = dat, aes(x = x, y = y)) +
+    geom_point()
+  
+})
+
+!```!
+
+```{r test_plots, fig.cap=paste0("test plot: ", as.character(1:4))}
+for(i in 1:4){
+ print(plot_list[[i]] + ggtitle(i))
+  cat('\r\n\r\n')
+}
+
+!```!
+
+```
+
+
+```
